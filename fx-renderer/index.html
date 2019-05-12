@@ -53,7 +53,11 @@
 	<div class="features-icons bg-white text-center font-roboto" style="padding-top:50px">
 		<h2 class="text-center mb-2">f(x) Renderer</h2>
 		<p>Created by SPD the Super Pixel Dev.<br/>(<a href="#customization">Apply the Customization</a>)</p>
-		<div id="spd-quadratic" style="width:100%" class="mb-5"></div>
+		<div id="spd-quadratic-1" style="width:100%" class="mb-5"></div>
+		<div id="spd-quadratic-2" style="width:100%" class="mb-5"></div>
+		<div id="spd-quadratic-3" style="width:100%" class="mb-5"></div>
+		<div id="spd-quadratic-4" style="width:100%" class="mb-5"></div>
+		<div id="spd-quadratic-5" style="width:100%" class="mb-5"></div>
 			<script>
 				var spd_quadratic_nolimitsize = VPSC_GetURL_Param('spd_nolimitsize', '');
 			
@@ -68,10 +72,14 @@
 				}
 				var spd_quadratic_title = 'y = ' + spd_quadratic_data;
 				
-				function SPD_Draw() {
+				function SPD_Draw(number) {
+					if (number == null) {
+						number = 1;
+					}
 					functionPlot({
 					  title: spd_quadratic_title,
-					  target: '#spd-quadratic',
+					  //target: '#spd-quadratic',
+					  target: '#spd-quadratic-'+number,
 					  width: spd_quadratic_width,
 					  height: spd_quadratic_height,
 					  disableZoom: false,
