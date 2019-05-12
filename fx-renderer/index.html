@@ -55,15 +55,15 @@
 		<p>Created by SPD the Super Pixel Dev.<br/>(<a href="#customization">Apply the Customization</a>)</p>
 		<div id="spd-quadratic" style="width:100%" class="mb-5"></div>
 			<script>
-				var spd_quadratic_limitsize = VPSC_GetURL_Param('spd_limitsize', '');
+				var spd_quadratic_nolimitsize = VPSC_GetURL_Param('spd_nolimitsize', '');
 			
 				var spd_quadratic_data = decodeURIComponent(VPSC_GetURL_Param('spd_data', 'x'));
 				var spd_quadratic_width = window.innerWidth * 0.9;
-				if (spd_quadratic_width > 800 && spd_quadratic_limitsize !== 'on') {
+				if (spd_quadratic_width > 800 && spd_quadratic_nolimitsize !== 'on') {
 					spd_quadratic_width = 800;
 				}
 				var spd_quadratic_height = window.innerHeight * 0.8;
-				if (spd_quadratic_height > 600 && spd_quadratic_limitsize !== 'on') {
+				if (spd_quadratic_height > 600 && spd_quadratic_nolimitsize !== 'on') {
 					spd_quadratic_height = 600;
 				}
 				var spd_quadratic_title = 'y = ' + spd_quadratic_data;
@@ -107,7 +107,7 @@
 				<small class="form-text text-muted">The mathematical expression inputed above is used for rendering the graph.<br/>(e.g. 5; x; x^2; x^2+1)</small>
 			  </div>
 			  <div class="form-group form-check">
-				<input type="checkbox" name="spd_limitsize" class="form-check-input">
+				<input type="checkbox" name="spd_nolimitsize" class="form-check-input">
 				<label class="form-check-label">Disable limiting size of the graph (limited to 800*600 by default)</label>
 			  </div>
 			  <input type="hidden" name="spd_custom" value="" />
