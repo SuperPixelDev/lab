@@ -55,13 +55,15 @@
 		<p>Created by SPD the Super Pixel Dev.<br/>(<a href="#customization">Apply the Customization</a>)</p>
 		<div id="spd-quadratic" style="width:100%" class="mb-5"></div>
 			<script>
+				var spd_quadratic_limitsize = VPSC_GetURL_Param('spd_limitsize', '');
+			
 				var spd_quadratic_data = decodeURIComponent(VPSC_GetURL_Param('spd_data', 'x'));
-				var spd_quadratic_width = window.innerWidth * 0.8;
-				if (spd_quadratic_width > 800) {
+				var spd_quadratic_width = window.innerWidth * 0.9;
+				if (spd_quadratic_width > 800 && spd_quadratic_limitsize !== 'on') {
 					spd_quadratic_width = 800;
 				}
 				var spd_quadratic_height = window.innerHeight * 0.8;
-				if (spd_quadratic_height > 600) {
+				if (spd_quadratic_height > 600 && spd_quadratic_limitsize !== 'on') {
 					spd_quadratic_height = 600;
 				}
 				var spd_quadratic_title = 'y = ' + spd_quadratic_data;
@@ -76,12 +78,12 @@
 					  xAxis: {
 						//label: 'x - axis',
 						//domain: [-6, 6]
-						label: 'x - axis',
-						domain: [-10, 10]
+						label: 'x - axis'
+						//domain: [-10, 10]
 					  },
 					  yAxis: {
-						label: 'y - axis',
-						domain: [-10, 10]
+						label: 'y - axis'
+						//domain: [-10, 10]
 					  },
 					  data: [{
 						fn: spd_quadratic_data
@@ -97,12 +99,16 @@
 		
 		<div class="container text-left mb-5" style="max-width:500px">
 		  <div class="mb-4">
-			<form action="index.html">
+			<form action="#">
 			  <h2 class="text-center mb-4">Customization</h2>
 			  <div class="form-group">
 				<label>Mathematical Expression</label>
 				<input type="text" class="form-control" name="spd_data" placeholder="Mathematical Expression...">
 				<small class="form-text text-muted">The mathematical expression inputed above is used for rendering the graph.<br/>(e.g. 5; x; x^2; x^2+1)</small>
+			  </div>
+			  <div class="form-group form-check">
+				<input type="checkbox" name="spd_limitsize" class="form-check-input">
+				<label class="form-check-label">Disable limiting size of the graph (limited to 800*600 by default)</label>
 			  </div>
 			  <input type="hidden" name="spd_custom" value="" />
 			  <button type="submit" class="btn btn-lg btn-block btn-vx">Submit</button>
@@ -111,9 +117,9 @@
 		  
 		  <hr class="mb-4">
 		  
-		  <div class="mb-4">
-			<h2 class="text-center mb-4">Advertising</h2>
-			<p><iframe src="https://vphs.top/upsilos/a" scrolling="yes" style="width:100%;height:100%;min-height:300px;border:0px; padding:0;overflow:hidden" allowtransparency="true" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts" id="avt"></iframe></p>
+		  <div class="mb-4 text-center">
+			<h2 class="mb-4">Advertising</h2>
+			<p><!--<iframe src="https://vphs.top/upsilos/a" scrolling="yes" style="width:100%;height:100%;min-height:300px;border:0px; padding:0;overflow:hidden" allowtransparency="true" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts" id="avt"></iframe>--><script src="https://vpsc.upsilos.com/js/AVT.min.js"></script><script>VPSC_AVT();</script></p>
 		  </div>
 		  
 		  <hr class="mb-4">
